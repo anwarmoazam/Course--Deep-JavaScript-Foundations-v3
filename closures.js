@@ -37,6 +37,3 @@ var f = z();
 // console.log(f);
 
 f();
-
-
-
