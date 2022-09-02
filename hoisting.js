@@ -50,25 +50,31 @@ function sortByNameAsc(record1,record2){
 console.log(printRecords(currentEnrollment));
 
 function paidStudentsToEnroll(){
-    var idsToEnroll = studentRecords.filter(function needsToEnroll(record){
-        return (record.paid && !currentEnrollment.includes(record.id));
-    })
-    .map(function getStudentId(record){
-        return record.id;
-    });
+    var idsToEnroll = studentRecords.filter(needsToEnroll)
+    .map(getStudentId);
 
     return [...currentEnrollment, ...idsToEnroll];
+}
+
+function needsToEnroll(record){
+    return (record.paid && !currentEnrollment.includes(record.id));
+}
+
+function getStudentId(record){
+    return record.id;
 }
 
 console.log(paidStudentsToEnroll());
 
 function remindUnpaid(recordIds){
-    var unpaidIds = recordIds.filter(function isUnpaid(studentId){
-        var record = getStudentById(studentId);
-        return !record.paid;
-    });
+    var unpaidIds = recordIds.filter(isUnpaid);
 
     printRecords(unpaidIds);
 }
 
-console.log(remindUnpaid([709,105]));
+function isUnpaid(studentId){
+    var record = getStudentById(studentId);
+    return !record.paid;
+}
+
+console.log(remindUnpaid([313,410,709,105,502,664,250,375,867]));
