@@ -36,4 +36,46 @@ var f = z();
 
 // console.log(f);
 
-f();
+// f();
+function tablePrint(num){
+	setTimeout(function(){
+		for(let i=1; i<=10; i++){
+			console.log(num*i);
+		}
+	},1000)
+	console.log(`Table of ${num}`);
+}
+
+tablePrint(2);
+
+// setTimeout(tablePrint,1000);
+
+/*
+//setTimeout with var
+for(var i=1; i<=10; i++){
+	setTimeout(function(){
+		console.log(`i : ${i}`);
+	},i*1000);
+}
+*/
+
+//setTimeout with let
+for(let i=1; i<=10; i++){
+	setTimeout(function(){
+			console.log(i);
+	},i*1000);
+}
+
+// for(var i=1; i<=10; i++){
+// 	let j = i;
+	// setTimeout(function(){
+	// 	console.log(`2 x ${j} : ${j*2}`);
+	// },j*1000);
+// }
+
+// for(var i=1; i<=10; i++){
+// 	let j = i;
+// 	setTimeout(function(){
+// 		console.log(`2 x ${j} : ${j*2}`);
+// 	},j*1000);
+// }
